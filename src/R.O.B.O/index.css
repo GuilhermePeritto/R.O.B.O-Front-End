@@ -73,33 +73,39 @@
     align-items: center;
 }
 
-.LabelPainel {
-    color: white;
-    width: 80px;
-}
-
-.PainelCabeca {
+.Cabeca {
     position: absolute;
-    width: 300px;
-    height: 150px;
+    top: 40px;
+    align-items: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    width: 300px;
 }
 
-.InclinacaoCabeca {
-    display: flex;
+.BracoEsquerdo {
+    position: absolute;
+    left: 90px;
+    bottom: 170px;
     align-items: center;
-    width: 100%;
-    height: 50%;
-    gap: 20px;
-    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
 }
 
-.RotacaoCabeca {
-    display: flex;
+.BracoDireito {
+    position: absolute;
+    right: 90px;
+    bottom: 170px;
     align-items: center;
-    width: 100%;
-    height: 50%;
-    gap: 20px;
-    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+}
+
+.cabecalho {
+    color: cyan;
+    font-size: 1.5em;
 }

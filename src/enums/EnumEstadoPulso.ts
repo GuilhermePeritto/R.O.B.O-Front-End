@@ -7,3 +7,5 @@ enum EstadoPulso {
     Rotacao135 = 'Rotação 135°',
     Rotacao180 = 'Rotação 180°'
 }
+
+export default EstadoPulso;

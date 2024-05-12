@@ -4,3 +4,5 @@ enum EstadoCotovelo {
     Contraido = 'Contraído',
     FortementeContraido = 'Fortemente Contraído'
 }
+
+export default EstadoCotovelo;

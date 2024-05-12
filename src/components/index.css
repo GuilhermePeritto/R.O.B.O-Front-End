@@ -1,0 +1,20 @@
+.textoCombo {
+  color: cyan;
+  width: 80px;
+}
+
+.combobox {
+    background-color: black;
+    color: cyan;
+    border: 1px solid cyan;
+    border-radius: 5px;
+    padding: 5px;
+    width: 170px;
+}
+
+.panelCombo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
