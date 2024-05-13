@@ -1,21 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
+
+interface Values {
+    label: string,
+    value: any
+}
 
 interface ComboBoxProps {
     text: string;
-    enum: any;
+    enum: Values[];
     onChange: (selectedValue: string, enumValue: any, origin: string) => void;
     origin: string;
-    valorInicial: string; // Nova propriedade para o valor inicial do ComboBox
+    valorInicial: string;
 }
 
-const ComboBox: React.FC<ComboBoxProps> = ({ text , enum: Enum, onChange, origin, valorInicial}) => {
-    const [selectedValue, setSelectedValue] = useState(valorInicial); // Estado para armazenar o valor selecionado
+const ComboBox: React.FC<ComboBoxProps> = ({ text, enum: Enum, onChange, origin, valorInicial }) => {
+    const [selectedValue, setSelectedValue] = useState(valorInicial);
 
+    useEffect(() => {
+        setSelectedValue(valorInicial);
+    }, [valorInicial])
+    
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const newValue = event.target.value;
-        setSelectedValue(newValue); // Atualiza o valor selecionado no estado
-        const enumValue = Enum[newValue as keyof typeof Enum];
+        setSelectedValue(newValue);
+        const enumValue = Enum.find((item) => item.label === newValue);
         onChange(newValue, enumValue, origin);
     };
 
@@ -23,11 +32,9 @@ const ComboBox: React.FC<ComboBoxProps> = ({ text , enum: Enum, onChange, origin
         <div className='panelCombo'>
             <label className='textoCombo'>{text}</label>
             <select className='combobox' value={selectedValue} onChange={handleChange}>
-                {Object.keys(Enum).map((key) => (
-                    <option key={key} value={key}>
-                        {Enum[key as keyof typeof Enum]}
-                    </option>
-                ))}
+                {Enum.map((item, index) => {
+                    return <option key={index} value={item.value}>{item.label}</option>
+                })}
             </select>
         </div>
     );
